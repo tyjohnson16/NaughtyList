@@ -1,0 +1,46 @@
+# Gradle
+.gradle/
+build/
+dist/
+
+# IDEs
+.idea/
+*.iml
+*.ipr
+*.iws
+.project
+.classpath
+.settings/
+.vscode/
+*.code-workspace
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Local test servers and backups
+server/
+server*/
+backups/
+off263/
+*.log
+
+# Java
+*.class
+hs_err_pid*
+replay_pid*
+
+# Python helpers
+__pycache__/
+*.pyc
+*.pyo
+
+# Test bot
+bot/node_modules/
+bot/*.log
+bot/cmd-*.fifo
+
+# Optional compile-only integration jars (do not commit third-party plugins).
+# XmasWorld-api.jar is the author's own API and is committed.
+libs/*.jar
+!libs/XmasWorld-api.jar

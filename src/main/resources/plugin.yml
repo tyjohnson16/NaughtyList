@@ -1,0 +1,20 @@
+name: NaughtyList
+version: '${version}'
+main: dev.stormrider.naughtylist.NaughtyListPlugin
+api-version: '${apiVersion}'
+description: Christmas-themed danger for hard-difficulty XmasWorld servers
+author: Stormrider
+softdepend: [XmasWorld, WorldGuard, GriefPrevention]
+commands:
+  naughty:
+    description: NaughtyList admin commands
+    usage: /<command> help
+    aliases: [nl]
+    permission: naughtylist.admin
+permissions:
+  naughtylist.admin:
+    description: Use /naughty commands
+    default: op
+  naughtylist.ignore:
+    description: NaughtyList threats leave this player alone
+    default: false

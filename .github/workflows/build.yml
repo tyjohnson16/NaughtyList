@@ -1,0 +1,30 @@
+name: Build
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - mc: "26.3"
+            paper: "26.3.build.254-stable"
+          - mc: "26.1.2"
+            paper: "26.1.2.build.74-stable"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "25"
+      - name: Build plugin jar
+        run: ./gradlew build --no-daemon -PmcVersion=${{ matrix.mc }} -PpaperApiVersion=${{ matrix.paper }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: NaughtyList-${{ matrix.mc }}
+          path: dist/NaughtyList-*-mc${{ matrix.mc }}.jar

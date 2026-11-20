@@ -1,0 +1,77 @@
+# NaughtyList 1.0.0. All damage values are health points (2 = 1 heart).
+worlds: [auto] # auto = XmasWorld generator worlds; or use [world]
+max-mobs-per-world: 80
+safe-zones:
+  structures: [north-pole, christmas-village, cabin, cocoa-stand, reindeer-stable, hot-spring]
+  padding: 6
+  spawn-radius: 32
+  worldguard-regions: []
+  griefprevention-claims: false # safe from ALL threats; goblin theft has its own claim protection below
+  block-vanilla-monster-spawns: true
+  clear-vanilla-targets: false
+evil-snowmen:
+  enabled: true
+  replace-chance: 0.12
+  blizzard-multiplier: 2.0
+  cap-per-player: 4
+  health: 16
+  shard: {damage: 2.0, slowness-level: 2, slowness-seconds: 2, frost-ticks: 60}
+  melt-at-sunrise: true
+  abominable:
+    enabled: true
+    chance: 0.0167
+    min-distance: 256
+    scale: 2.5
+    health: 80
+    volley: {shards: 3, every-seconds: 3, range: 16, damage: 3.0, slowness-level: 3, slowness-seconds: 3}
+    slam: {range: 3, damage: 3.0, knockback: 1.2, every-seconds: 4}
+    bossbar: true
+blizzards:
+  enabled: true
+  chance-per-night: 0.20
+  during-thunderstorms: true
+  warning-seconds: 30
+  max-minutes: 0
+  frost-overlay: 110 # clamped to 130, no freeze damage
+  leather-reduces-frost: 0.25
+  monster-cap-multiplier: 1.5
+  freeze-water: {enabled: true, blocks-per-player: 6, every-seconds: 2, radius: 24}
+grinch-goblins:
+  enabled: true
+  replace-chance: 0.03
+  cap-per-player: 1
+  player-cooldown-minutes: 10
+  protect-own-claims: true # approved: can't steal inside your own GriefPrevention claim
+  health: 12
+  speed: 0.35
+  scale: 0.6
+  max-steal-amount: 16
+  never-steal: [SHULKER_BOX, '*_SHULKER_BOX', BUNDLE, '*_BUNDLE', ENDER_CHEST, WRITTEN_BOOK, TOTEM_OF_UNDYING, ELYTRA]
+  never-steal-named-items: true
+  escape: {distance: 40, seconds: 30, max-seconds: 60}
+coal-presents:
+  enabled: true
+  legacy-shape-detection: true # finds presents in chunks made before XmasWorld 1.3.0 (by their block shape)
+  chance: {surface: 0.10, cave: 0.15, buried: 0.15, under-ice: 0.0}
+  fuse-seconds: 1.5
+  outcomes: {pop: 40, coal: 30, bugs: 20, sprites: 10}
+  pop: {damage: 6.0, radius: 3.0, knockback: 0.8}
+  coal: {min: 3, max: 8, keep-one-item: true}
+  bugs: {count: 3}
+  sprites: {count: 2, lifetime-seconds: 15}
+nutcrackers:
+  enabled: true
+  posts: {ice-castle: 4, pirate-ship: 3, toy-mine: 3, present-maze: 3, snowball-fort: 3, hidden-sleigh: 2}
+  captain-at: [ice-castle]
+  guard: {health: 30, coat: '#B02E26', trousers: '#F9FFFE', boots: '#1D1D21', cap: '#1D1D21'}
+  captain: {health: 45, power: 2, punch: 1}
+  leash: 24
+  respawn-minutes: 60
+  respawn-player-distance: 32
+rewards:
+  abominable-kill: []
+  captain-kill: []
+  goblin-kill: []
+
+# Extra log lines for troubleshooting.
+debug: false
